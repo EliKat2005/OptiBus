@@ -1,0 +1,21 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Previene scroll en la PWA */
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f3f4f6;
+}
+
+#map {
+    width: 100vw;
+    height: 100vh; /* Que ocupe toda la pantalla del dispositivo */
+    z-index: 1;
+}
+
+/* Ajustes opcionales para los marcadores de Leaflet y popups */
+.leaflet-popup-content-wrapper {
+    font-size: 14px;
+    border-radius: 8px;
+}

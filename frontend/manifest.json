@@ -1,0 +1,17 @@
+{
+  "name": "OptiBus PWA",
+  "short_name": "OptiBus",
+  "description": "Rastreo de rutas y transporte público de Ibarra en tiempo real.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "https://cdn.iconscout.com/icon/free/png-256/free-bus-icon-download-in-svg-png-gif-file-formats--transportation-vehicle-travel-locomotion-user-interface-pack-icons-460228.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
