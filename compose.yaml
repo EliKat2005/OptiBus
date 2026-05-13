@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  db:
+    image: docker.io/postgis/postgis:16-3.4
+    container_name: optibus_db
+    environment:
+      POSTGRES_DB: optibus
+      POSTGRES_USER: optibus
+      POSTGRES_PASSWORD: optibus123
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    # Para rootless es recomendable comentar o ajustar el usuario según tu UID.
+    # user: "1000:1000"               # Descomenta si tienes problemas de permisos
+
+  api:
+    build: ./backend
+    container_name: optibus_api
+    environment:
+      DATABASE_URL: postgresql://optibus:optibus123@db:5432/optibus
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app:Z
+    working_dir: /app
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+volumes:
+  db_data:
+    driver: local
